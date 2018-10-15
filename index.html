@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>나와 함께 춤을</title>
+	<meta charset = "utf-8">
+
+
+<style>
+
+body{position:fixed; z-index:-2;}
+.text {width : 40px; height:40px; border-radius:50%; position:absolute; background-color:orange; display:block; z-index:1;
+		}
+#main{padding-top:200px; margin:auto; width:1000px; display: grid; grid-template-columns: 300px 1fr; z-index:1; padding-bottom:200px;}
+#textBL{width:400px; text-align:center; display:block;
+		font-family:'Song Myung', serif; font-size:5em;}
+#textBR{font-family:'Song Myung', serif; font-size:5em;	
+		font-weight: bold; }
+#textC{width:1200px; height:200px;  margin:auto;  text-align:center; padding-top:180px;}
+
+#circle{width:50px; height:50px; background-color:red; display:block;
+		border-radius:50%; position:absolute; animation: drop 1s infinite running; z-index:-2;}
+#img {padding-top:50px;background:url("giphy (1).gif"); width:400px; background-size:cover; }
+
+		@keyframes drop {
+		10%{margin-top:0px; opacity:0;}
+		50%{margin-top:20px; opacity:0.5;}
+		100%{margin-top:0px; }
+		}
+	.text:hover{font-size:5em; opacity:0.2; color:black;}
+	<link href="https://fonts.googleapis.com/css?family=Song+Myung&amp;subset=korean" rel="stylesheet">
+
+
+</style>
+
+</head>
+<body>
+<div id = bigwrap>
+<div id = circle>우예</div>
+<div id =wrap>
+<div id = main>
+<div id = textBL></div>
+<div id = textBR>와(과) 함께 춤을</div>
+<div id = textC></div>
+<div id = img>
+</div>
+</div>
+</div>
+</div>
+<script>
+
+var text = "나 너 그녀 그 할머니 할아버지 손자 손녀 엄마 아빠 EK 투팍 ";
+var k = text.split(" "); 
+var display = ""; 
+
+	for(var i = 0; i<k.length; i++){
+		var c = document.getElementById("textC");
+		var d = c.cloneNode(true);
+		d.id="a"+i
+		d.className="text";
+		d.innerHTML = k[i];
+		d.style.left = Math.random()*window.innerWidth+"px";
+		d.style.top = Math.random()*window.innerHeight+"px";
+
+		textC.appendChild(d);
+
+		d.onmouseover = function(){
+			console.log(this.id);
+			var t = document.getElementById(this.id);
+			textBL.innerHTML = t.innerHTML;
+			textBL.style.color ="red";
+		}
+	}
+
+	for (var i = 0; i<80; i++){
+	var a = document.getElementById("circle");
+	var back = a.cloneNode(true);
+	back.style.left = Math.random()*window.innerWidth+"px";
+	back.style.top = Math.random()*window.innerHeight+"px";
+	var time = Math.random();
+
+	
+	document.body.appendChild(back);
+	
+
+	back.style.opacity = Math.random();
+
+	function makeColor(){
+		var r = Math.ceil(Math.random()*255);
+		var g = Math.ceil(Math.random()*255);
+		var b = Math.ceil(Math.random()*255);
+		var text = "rgb("+r+","+g+","+b+")";
+		return text;
+	}
+	
+	}
+
+</script>
+</body>
+</body>
+</html>
